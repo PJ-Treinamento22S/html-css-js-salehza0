@@ -8,6 +8,8 @@ body{
     background-size: 100%;
     font-family: 'Outfit';
     text-rendering: optimizeLegibility !important;
+    display: flex;
+    flex-direction: column;
 }
 .header{
     height: 160px;
@@ -15,7 +17,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid black;
 }
 .navigation-bar{
     height: 100%;
@@ -23,4 +24,24 @@ body{
     display: flex;
     border: 2px solid black;
     border-radius: 16px;
+}
+.content{
+    padding: 10px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.user-info{
+    border: 2px solid black;
+    border-radius: 16px;
+    width: 520px;
+    height: 100%;
+    margin-right: 10px;
+}
+.feed{
+    border: 2px solid black;
+    border-radius: 16px;
+    width: inherit;
+    height: 100%;
 }
