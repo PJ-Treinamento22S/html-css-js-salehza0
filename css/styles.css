@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    margin-top: 5px;
 }
 body{
     background-image: url("https://lh3.googleusercontent.com/pw/AM-JKLWsHZyEhzVFDaZpVVi3I_gitRCymM0zxaz_49QQlvKnu4LM291D6Uk6O_wPOAI0wervYWJ7F3jJpBycijr8zPNp82f-nAnkB_gn5-_zkqAg6uxyt3r_xs5G058f2xv-1qbkkf1oBImfu85G7JjcK4c=w1307-h929-no?authuser=0");
@@ -16,14 +17,22 @@ body{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 .navigation-bar{
+    padding: 80px;
     height: 100%;
-    width: 1200px;
+    width: inherit;
     display: flex;
     border: 2px solid black;
     border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon{
+    width: 520px;
+    height: 100%;
+    margin-right: 10px;
 }
 .content{
     padding: 10px;
