@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("https://lh3.googleusercontent.com/pw/AM-JKLWsHZyEhzVFDaZpVVi3I_gitRCymM0zxaz_49QQlvKnu4LM291D6Uk6O_wPOAI0wervYWJ7F3jJpBycijr8zPNp82f-nAnkB_gn5-_zkqAg6uxyt3r_xs5G058f2xv-1qbkkf1oBImfu85G7JjcK4c=w1307-h929-no?authuser=0");
+    background-size: 100%;
+    font-family: 'Outfit';
+    text-rendering: optimizeLegibility !important;
+}
+.header{
+    height: 160px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+.navigation-bar{
+    height: 100%;
+    width: 1200px;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 16px;
+}
