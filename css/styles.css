@@ -56,6 +56,10 @@ body{
     justify-content: space-between;
 }
 .feed{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 2px solid black;
     border-radius: 16px;
     width: 100%;
@@ -93,7 +97,7 @@ img{
     height: 32px; 
 }
 .profile-img > img{
-    /* background-image: url("../assets/profilephoto.jpg"); */
+    margin-right: 16px;
     width: 120px;
     height: 120px;
     border: 2px solid black;
@@ -142,5 +146,48 @@ img{
     border-radius: 32px;
     background-color: white;
     opacity: 0,8;
+}
+.feed-piu{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 640px;
+    height: fit-content;
+    background-color: white;
+    opacity: 0,8;
+    border: 2px solid black;
+    border-radius: 32px;
+}
+.user-piu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+}
+.piu-img > img{
+    margin-right: 16px;
+    width: 56px;
+    height: 56px;
+    border: 2px solid black;
+    border-radius: 64px;
+}
+.piu-text{
+    font-size: large;
+}
+.piu-icons{
+    display: flex;
+    justify-content: space-between;
+    width: 128px;
+    height: fit-content;
+}
+.piu-button{
+    background-color: white;
 
+}
+.piu-button > img{
+    width: 32px;
+    height: 32px;
 }
