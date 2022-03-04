@@ -13,6 +13,9 @@ body{
     flex-direction: column;
     overflow: hidden;
 }
+.container{
+    height: 100vh;
+}
 .header{
     padding: 8px;
     height: 160px;
@@ -53,9 +56,8 @@ body{
     padding-bottom: 32px;
     border: 2px solid black;
     border-radius: 16px;
-    min-width: 400px;
-    max-width: 600px;
-    height: 800px;
+    width: 400px;
+    height: 75vh;
     margin-right: 8px;
     display: flex;
     flex-direction: column;
@@ -70,9 +72,10 @@ body{
     border: 2px solid black;
     border-radius: 16px;
     width: 100%;
-    height: auto;
-    overflow: scroll;
+    height: 75vh;
+    overflow-x: hidden;
     overflow-y: scroll;
+    position: relative;
 }
 .icons{
     width: 40px;
@@ -133,6 +136,14 @@ img{
     outline: 0;
     width: 320px;
     height: 160px;
+}
+.bio{
+    border: 0;
+    outline: 0;
+    width: 320px;
+    height: 160px;
+    font-family: 'Outfit';
+    font-size: large;
 }
 .button{
     background-color: #B5C99A;
