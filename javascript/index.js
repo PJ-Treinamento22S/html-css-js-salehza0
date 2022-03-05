@@ -20,43 +20,79 @@ async function getData(){
                                     <img src="../assets/home.svg" alt="hilight">
                                 </button class="piu-button">
                                 <button class="piu-button">
-                                    <img src="../assets/like.svg" alt="like">
+                                    <img src="../assets/like.svg" alt="like" onclick="addLike(this)">
                                 </button>
+                                <p id="numberOfLikes">0</p>
                                 <button class="piu-button">
-                                    <img src="../assets/help.svg" alt="help">
+                                    <img src="../assets/trash.svg" onclick="piuDelete(this)">
                                 </button>
                             </div>
-                        </div>`
+                    </div>`
+
         piupiuzadas.insertAdjacentHTML('beforeend',html)
 
     });
 }
 getData()
 
-const postText = document.getElementById('newpiu')
-console.log(postText)
-console.log(postText.value)
+var capturando = ""
 
-// function post(){
-//     const postText = document.getElementById('newpiu')
-//     const html = `<div class="user-piu">
-//                         <div class="piu-img">
-//                         <img src="../assets/profilephoto.jpg" alt="profile photo">
-//                         </div>
-//                         <h3>salehzao</h3>
-//                         </div>
-//                         <p class="piu-text">${postText.value}</p>
-//                         <div class="piu-icons">
-//                         <button class="piu-button">
-//                             <img src="../assets/home.svg" alt="hilight">
-//                         </button class="piu-button">
-//                         <button class="piu-button">
-//                             <img src="../assets/like.svg" alt="like">
-//                         </button>
-//                         <button class="piu-button">
-//                             <img src="../assets/help.svg" alt="help">
-//                         </button>
-//                     </div>` 
+function capturar(){
+    capturando=document.getElementById('newpiu').value
+    return capturando
+}
+
+function post(){
+    const newpiu = capturar()
+    const html = `<div class="feed-piu">
+                    <div class="user-piu">
+                        <div class="piu-img">
+                        <img src="../assets/profilephoto.jpg" alt="profile photo">
+                        </div>
+                        <h3>salehzao</h3>
+                        </div>
+                        <p class="piu-text">${newpiu}</p>
+                        <div class="piu-icons">
+                        <button class="piu-button">
+                            <img src="../assets/home.svg" alt="hilight">
+                        </button class="piu-button">
+                        <button class="piu-button" onclick="addLike(this)">
+                            <img src="../assets/like.svg" alt="like">
+                        </button>
+                        <p id="numberOfLikes">0</p>
+                        <button class="piu-button">
+                            <img src="../assets/trash.svg" onclick="piuDelete(this)">
+                        </button>
+                    </div>
+                </div>` 
                 
-//     piupiuzadas.insertAdjacentHTML('beforeend',html)
-// }
+    piupiuzadas.insertAdjacentHTML('afterbegin',html)
+}
+
+function wordCount(){
+    const text = document.querySelector("#newpiu")
+    const contador = document.querySelector("#contador")
+    const aviso = document.querySelector("#aviso")
+    text.onkeyup = (e)=>{ 
+        contador.innerText = (e.target.value.length)+"/140"
+        if((e.target.value.length)>140){
+            document.getElementById("newpiu").style.color="red"
+            aviso.innerText = "Você ultrpassou o limite de caracteres."
+        }
+        else{
+            document.getElementById("newpiu").style.color="black"
+            aviso.innerText = " "
+        }
+}
+}
+wordCount()
+
+function addLike(piu){
+    const likeCount = piu.parentNode.parentNode.querySelector("#numberOfLikes")
+    likeCount.innerText = parseInt(likeCount.innerText)+parseInt(1) 
+}
+
+function piuDelete(piu){
+    const piuRemover = piu.parentNode.parentNode.parentNode.parentNode.querySelector(".feed-piu")
+    piuRemover.parentNode.removeChild(piuRemover)
+}

@@ -32,11 +32,12 @@
                 <div class="user-info">
                 <div class="piupiu">
                     <img src="../assets/pena.svg" alt="pena">
-                    <input type="text" placeholder="PiuPiuze como quiser..." id="newpiu" class="input">
-                    <button onclick="post()">
-                        <img src="../assets/home.svg">
-                    </button>
+                    <textarea id="newpiu" placeholder="PiuPiuze como quiser..." class="input"></textarea>
+                    <input type="submit" onclick="post()" value="Postar" class="button">
+                    
                 </div>
+                <p id="contador"></p>
+                <p id="aviso"></p>
                 <div class="profile">
                     <div class="profile-img">
                         <img src="../assets/profilephoto.jpg" alt="profile photo">
@@ -55,28 +56,8 @@
                 </div>
             </div>
             </div>
-            <div class="feed">
-                <h1>PiuPiuzadas</h1>
-                <div class="feed-piu">
-                    <div class="user-piu">
-                        <div class="piu-img">
-                        <img src="../assets/unk.png" alt="no image">
-                        </div>
-                        <h3>Usuario 1</h3>
-                    </div>
-                    <p class="piu-text">Esse é o texto do feed</p>
-                    <div class="piu-icons">
-                        <button class="piu-button">
-                            <img src="../assets/home.svg" alt="hilight">
-                        </button class="piu-button">
-                        <button class="piu-button">
-                            <img src="../assets/like.svg" alt="like">
-                        </button>
-                        <button class="piu-button">
-                            <img src="../assets/help.svg" alt="help">
-                        </button>
-                    </div>
-                </div>
+            <div class="feed"> 
+                <!-- <h1>PiuPiuzadas</h1> -->
             </div>
         </div>
     </div>

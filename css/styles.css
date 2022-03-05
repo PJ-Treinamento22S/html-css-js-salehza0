@@ -147,8 +147,8 @@ img{
 }
 .button{
     background-color: #B5C99A;
-    width: 80px;
-    height: 48px;
+    width: fit-content;
+    height: fit-content;
     align-items: flex-end;
     justify-content: flex-end;
     border: 0;
@@ -220,6 +220,7 @@ img{
     height: fit-content;
 }
 .piu-button{
+    border:0;
     width: fit-content;
     height: fit-content;
     background-color: white;
