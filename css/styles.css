@@ -230,3 +230,28 @@ img{
     width: 32px;
     height: 32px;
 }
+.search-bar{
+    padding: 8px;
+    padding-left: 8px;
+    width: 800px;
+    height: fit-content;
+    border-radius: 64px;
+    background-color: white;
+    opacity: 0,8;
+    box-shadow: 0 0 4px 2px #555;
+    font-family: 'Outfit';
+    font-size: large;
+}
+.search-kit{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-button{
+    width: 32px;
+    height: auto;
+    border: 0;
+    border-radius: 64px;
+}
