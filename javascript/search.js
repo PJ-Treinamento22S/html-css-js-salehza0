@@ -8,7 +8,8 @@ async function getData(){
     console.log(data)
 
     let searchText = document.querySelector("#searchBar").value
-    const aviso = document.querySelector("#aviso")
+    const aviso = document.querySelector("#notFound")
+    let userUnk = true
 
     data.forEach(userInfo => {
         if(searchText==userInfo.user.username){
@@ -17,7 +18,7 @@ async function getData(){
                             <div class="piu-img">
                             <img src="${userInfo.user.photo}" alt="image">
                             </div>
-                            <h3>${userInfo.user.username}</h3>
+                            <h3>${"@"+userInfo.user.username}</h3>
                         </div>
                         <p class="piu-text">${userInfo.text}</p>
                         <div class="piu-icons">
@@ -34,11 +35,13 @@ async function getData(){
                         </div>
                 </div>`
                 piupiuzadas.insertAdjacentHTML('beforeend',html)
-        }
-        else{
-            aviso.innerText = "Esse usuário não existe!"
+                userUnk = false
         }
     });
+
+    if(userUnk){
+        aviso.innerText = "Esse usuário não existe!"
+    }
 }
 
 

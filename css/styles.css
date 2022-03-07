@@ -2,8 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    margin-top: 5px;
+    /* margin-top: 5px; */
 }
+
 body{
     background-image: url("../assets/background.png");
     background-size: 100%;
@@ -11,32 +12,35 @@ body{
     text-rendering: optimizeLegibility !important;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 .container{
     height: 100vh;
 }
-.header{
-    padding: 8px;
-    height: 160px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
 .navigation-bar{
-    padding: 80px;
-    height: 100%;
+    background-color: white;
+    opacity: 0.5;
+    padding: 32px;
+    height: 64px;
     width: 100%;
     display: flex;
-    border: 2px solid black;
-    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 0 4px 2px #555;
 }
-.logo{
+.profile-img-nav > img{
+        margin-right: 16px;
+        width: 48px;
+        height: 48px;
+        border: 2px solid black;
+        border-radius: 64px;
+}
+.icons-nav{
     height: 100%;
-    margin-right: 8px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .content{
     padding: 8px;
@@ -57,8 +61,9 @@ body{
     border: 2px solid black;
     border-radius: 16px;
     width: 400px;
-    height: 75vh;
+    height: fit-content;
     margin-right: 8px;
+    margin-left: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,10 +74,10 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
-    border-radius: 16px;
+    /* border: 2px solid black;
+    border-radius: 16px; */
     width: 100%;
-    height: 75vh;
+    height: 100vh;
     overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
@@ -146,11 +151,12 @@ img{
     font-size: large;
 }
 .button{
+    display: flex;
     background-color: #B5C99A;
-    width: fit-content;
-    height: fit-content;
-    align-items: flex-end;
-    justify-content: flex-end;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
     border: 0;
     border-radius: 64px;
     box-shadow: 0 0 4px 2px #555;

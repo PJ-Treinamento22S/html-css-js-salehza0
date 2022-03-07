@@ -12,7 +12,7 @@ async function getData(){
                                 <div class="piu-img">
                                 <img src="${userInfo.user.photo}" alt="image">
                                 </div>
-                                <h3>${userInfo.user.username}</h3>
+                                <h3>${"@"+userInfo.user.username}</h3>
                             </div>
                             <p class="piu-text">${userInfo.text}</p>
                             <div class="piu-icons">
@@ -49,7 +49,7 @@ function post(){
                         <div class="piu-img">
                         <img src="../assets/profilephoto.jpg" alt="profile photo">
                         </div>
-                        <h3>salehzao</h3>
+                        <h3>@salehzao</h3>
                         </div>
                         <p class="piu-text">${newpiu}</p>
                         <div class="piu-icons">
