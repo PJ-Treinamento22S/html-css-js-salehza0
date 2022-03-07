@@ -76,12 +76,16 @@ function wordCount(){
     text.onkeyup = (e)=>{ 
         contador.innerText = (e.target.value.length)+"/140"
         if((e.target.value.length)>140){
-            document.getElementById("newpiu").style.color="red"
-            aviso.innerText = "Você ultrpassou o limite de caracteres."
+            // document.getElementById("newpiu").style.color="red"
+            aviso.innerText = "Você ultrapassou o limite de caracteres."
+            aviso.style.color = "red"
+            contador.style.color = "red"
         }
         else{
             document.getElementById("newpiu").style.color="black"
             aviso.innerText = " "
+            aviso.style.color = "black"
+            contador.style.color = "black"
         }
 }
 }
