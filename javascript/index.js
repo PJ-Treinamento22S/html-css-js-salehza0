@@ -1,5 +1,8 @@
 const piupiuzadas = document.querySelector(".feed")
 
+let idCount = 0
+
+
 async function getData(){
     const response = await fetch("https://api.json-generator.com/templates/BQZ3wDrI6ts0/data?access_token=n7lhzp6uj5oi5goj0h2qify7mi2o8wrmebe3n5ad");
     const data = await response.json();
@@ -7,7 +10,8 @@ async function getData(){
     console.log(data)
 
     data.forEach(userInfo => {
-        const html=`<div class="feed-piu">
+        idCount++
+        const html=`<div class="feed-piu" id="id-${idCount}">
                             <div class="user-piu">
                                 <div class="piu-img">
                                 <img src="${userInfo.user.photo}" alt="image">
@@ -16,9 +20,10 @@ async function getData(){
                             </div>
                             <p class="piu-text">${userInfo.text}</p>
                             <div class="piu-icons">
-                                <button class="piu-button">
+                                <button class="piu-button" onclick="highlight(this)">
                                     <img src="../assets/home.svg" alt="hilight">
-                                </button class="piu-button">
+                                </button>
+                                <p id="numberOfHilights">0</p>
                                 <button class="piu-button">
                                     <img src="../assets/like.svg" alt="like" onclick="addLike(this)">
                                 </button>
@@ -30,9 +35,9 @@ async function getData(){
                     </div>`
 
         piupiuzadas.insertAdjacentHTML('beforeend',html)
-
     });
 }
+
 getData()
 
 var capturando = ""
@@ -44,7 +49,8 @@ function capturar(){
 
 function post(){
     const newpiu = capturar()
-    const html = `<div class="feed-piu">
+    idCount++
+    const html = `<div class="feed-piu" id="id-${idCount}">
                     <div class="user-piu">
                         <div class="piu-img">
                         <img src="../assets/profilephoto.jpg" alt="profile photo">
@@ -53,9 +59,10 @@ function post(){
                         </div>
                         <p class="piu-text">${newpiu}</p>
                         <div class="piu-icons">
-                        <button class="piu-button">
+                        <button class="piu-button" onclick="highlight(this)">
                             <img src="../assets/home.svg" alt="hilight">
-                        </button class="piu-button">
+                        </button>
+                        <p id="numberOfHilights">0</p>
                         <button class="piu-button" onclick="addLike(this)">
                             <img src="../assets/like.svg" alt="like">
                         </button>
@@ -101,3 +108,10 @@ function piuDelete(piu){
     piuRemover.parentNode.removeChild(piuRemover)
 }
 
+function highlight(piu){
+    const destCount = piu.parentNode.parentNode.querySelector("#numberOfHilights")
+    destCount.innerText = parseInt(destCount.innerText)+parseInt(1)
+    const highlightedPiu = piu.parentNode.parentNode.parentNode.querySelector("")
+    piupiuzadas.insertAdjacentHTML('afterbegin', highlightedPiu)
+    console.log(highlightedPiu)
+}
