@@ -1,29 +1,29 @@
 const piupiuzadas = document.querySelector(".feed")
 
-let idCount = 0
-
-
-async function getData(){
+let piusData = [];
+let html = ""
+async function getData() {
     const response = await fetch("https://api.json-generator.com/templates/BQZ3wDrI6ts0/data?access_token=n7lhzp6uj5oi5goj0h2qify7mi2o8wrmebe3n5ad");
-    const data = await response.json();
+    const piusData = await response.json();
+    return piusData
+}
 
-    console.log(data)
-
-    data.forEach(userInfo => {
-        idCount++
-        const html=`<div class="feed-piu" id="id-${idCount}">
+function renderPius() {
+    html = ""
+    piusData.forEach(piuData => {
+        html += `<div class="feed-piu" id="${piuData.id}">
                             <div class="user-piu">
                                 <div class="piu-img">
-                                <img src="${userInfo.user.photo}" alt="image">
+                                <img src="${piuData.user.photo}" alt="image">
                                 </div>
-                                <h3>${"@"+userInfo.user.username}</h3>
+                                <h3>${"@" + piuData.user.username}</h3>
                             </div>
-                            <p class="piu-text">${userInfo.text}</p>
+                            <p class="piu-text">${piuData.text}</p>
                             <div class="piu-icons">
                                 <button class="piu-button" onclick="highlight(this)">
                                     <img src="../assets/home.svg" alt="hilight">
                                 </button>
-                                <p id="numberOfHilights">0</p>
+                                <p id="numberOfHighlights">0</p>
                                 <button class="piu-button">
                                     <img src="../assets/like.svg" alt="like" onclick="addLike(this)">
                                 </button>
@@ -33,24 +33,27 @@ async function getData(){
                                 </button>
                             </div>
                     </div>`
-
-        piupiuzadas.insertAdjacentHTML('beforeend',html)
     });
+    
+    piupiuzadas.innerHTML = html
 }
 
-getData()
+async function loadPage() {
+    piusData = await getData();
+    renderPius()
+    console.log(piusData)
+}
+loadPage()
 
 var capturando = ""
-
-function capturar(){
-    capturando=document.getElementById('newpiu').value
+function capturar() {
+    capturando = document.getElementById('newpiu').value
     return capturando
 }
 
-function post(){
+function post() {
     const newpiu = capturar()
-    idCount++
-    const html = `<div class="feed-piu" id="id-${idCount}">
+    html = `<div class="feed-piu">
                     <div class="user-piu">
                         <div class="piu-img">
                         <img src="../assets/profilephoto.jpg" alt="profile photo">
@@ -62,7 +65,7 @@ function post(){
                         <button class="piu-button" onclick="highlight(this)">
                             <img src="../assets/home.svg" alt="hilight">
                         </button>
-                        <p id="numberOfHilights">0</p>
+                        <p id="numberOfHighlights">0</p>
                         <button class="piu-button" onclick="addLike(this)">
                             <img src="../assets/like.svg" alt="like">
                         </button>
@@ -71,47 +74,46 @@ function post(){
                             <img src="../assets/trash.svg" onclick="piuDelete(this)">
                         </button>
                     </div>
-                </div>` 
-                
-    piupiuzadas.insertAdjacentHTML('afterbegin',html)
+                </div>`+ html
+
+    piupiuzadas.innerHTML = html
 }
 
-function wordCount(){
+function wordCount() {
     const text = document.querySelector("#newpiu")
     const contador = document.querySelector("#contador")
     const aviso = document.querySelector("#aviso")
-    text.onkeyup = (e)=>{ 
-        contador.innerText = (e.target.value.length)+"/140"
-        if((e.target.value.length)>140){
+    text.onkeyup = (e) => {
+        contador.innerText = (e.target.value.length) + "/140"
+        if ((e.target.value.length) > 140) {
             // document.getElementById("newpiu").style.color="red"
             aviso.innerText = "Você ultrapassou o limite de caracteres."
             aviso.style.color = "red"
             contador.style.color = "red"
         }
-        else{
-            document.getElementById("newpiu").style.color="black"
+        else {
+            document.getElementById("newpiu").style.color = "black"
             aviso.innerText = " "
             aviso.style.color = "black"
             contador.style.color = "black"
         }
-}
+    }
 }
 wordCount()
 
-function addLike(piu){
+function addLike(piu) {
     const likeCount = piu.parentNode.parentNode.querySelector("#numberOfLikes")
-    likeCount.innerText = parseInt(likeCount.innerText)+parseInt(1) 
+    likeCount.innerText = parseInt(likeCount.innerText) + parseInt(1)
 }
 
-function piuDelete(piu){
+function piuDelete(piu) {
     const piuRemover = piu.parentNode.parentNode.parentNode.parentNode.querySelector(".feed-piu")
     piuRemover.parentNode.removeChild(piuRemover)
 }
 
 function highlight(piu){
-    const destCount = piu.parentNode.parentNode.querySelector("#numberOfHilights")
-    destCount.innerText = parseInt(destCount.innerText)+parseInt(1)
-    const highlightedPiu = piu.parentNode.parentNode.parentNode.querySelector("")
-    piupiuzadas.insertAdjacentHTML('afterbegin', highlightedPiu)
-    console.log(highlightedPiu)
+    const wrapper = piu.parentNode.parentNode;
+    const piuData = piusData.find(data => data.id === wrapper.id);
+    piusData = [piuData, ...piusData.filter(piu => piu != piuData)]
+    renderPius()
 }
