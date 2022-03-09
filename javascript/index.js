@@ -1,7 +1,7 @@
-const piupiuzadas = document.querySelector(".feed")
-
+let piupiuzadas = document.querySelector(".feed")
 let piusData = [];
-let html = ""
+let html = " "
+
 async function getData() {
     const response = await fetch("https://api.json-generator.com/templates/BQZ3wDrI6ts0/data?access_token=n7lhzp6uj5oi5goj0h2qify7mi2o8wrmebe3n5ad");
     const piusData = await response.json();
@@ -9,7 +9,7 @@ async function getData() {
 }
 
 function renderPius() {
-    html = ""
+    html = " "
     piusData.forEach(piuData => {
         html += `<div class="feed-piu" id="${piuData.id}">
                             <div class="user-piu">
@@ -23,7 +23,6 @@ function renderPius() {
                                 <button class="piu-button" onclick="highlight(this)">
                                     <img src="../assets/home.svg" alt="hilight">
                                 </button>
-                                <p id="numberOfHighlights">0</p>
                                 <button class="piu-button">
                                     <img src="../assets/like.svg" alt="like" onclick="addLike(this)">
                                 </button>
@@ -41,7 +40,6 @@ function renderPius() {
 async function loadPage() {
     piusData = await getData();
     renderPius()
-    console.log(piusData)
 }
 loadPage()
 
@@ -65,7 +63,6 @@ function post() {
                         <button class="piu-button" onclick="highlight(this)">
                             <img src="../assets/home.svg" alt="hilight">
                         </button>
-                        <p id="numberOfHighlights">0</p>
                         <button class="piu-button" onclick="addLike(this)">
                             <img src="../assets/like.svg" alt="like">
                         </button>
@@ -113,7 +110,6 @@ function piuDelete(piu) {
 
 function highlight(piu){
     const wrapper = piu.parentNode.parentNode;
-    const piuData = piusData.find(data => data.id === wrapper.id);
-    piusData = [piuData, ...piusData.filter(piu => piu != piuData)]
-    renderPius()
+    piupiuzadas.removeChild(wrapper)
+    piupiuzadas.prepend(wrapper)
 }
