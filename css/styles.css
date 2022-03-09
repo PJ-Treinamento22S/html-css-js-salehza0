@@ -87,17 +87,6 @@ body{
     overflow-y: scroll;
     position: relative;
 }
-.searcher{
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 87vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: relative;
-}
 .icons{
     width: 40px;
     height: 40px;
