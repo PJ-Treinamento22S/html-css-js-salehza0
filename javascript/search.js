@@ -23,7 +23,7 @@ async function getData(){
                         <p class="piu-text">${userInfo.text}</p>
                         <div class="piu-icons">
                             <button class="piu-button">
-                                <img src="../assets/home.svg" alt="hilight">
+                                <img src="../assets/home.svg" alt="hilight" onclick="highlight(this)">
                             </button class="piu-button">
                             <button class="piu-button">
                                 <img src="../assets/like.svg" alt="like" onclick="addLike(this)">
@@ -54,3 +54,4 @@ function piuDelete(piu){
     const piuRemover = piu.parentNode.parentNode.parentNode.parentNode.querySelector(".feed-piu")
     piuRemover.parentNode.removeChild(piuRemover)
 }
+
